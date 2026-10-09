@@ -1,4 +1,3 @@
-import "./Header.scss";
 import Navbar from "./Navbar";
 import TopBar from "./TopBar";
 

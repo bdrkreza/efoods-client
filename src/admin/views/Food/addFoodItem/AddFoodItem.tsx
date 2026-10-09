@@ -65,7 +65,7 @@ export default function AddFoodItem() {
         )}
         {status === "success" && (
           <div className="alert alert-success" role="alert">
-            <h1>Create Store successfully</h1>
+            <h1>Create successfully</h1>
           </div>
         )}
         <CCardBody>

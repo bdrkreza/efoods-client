@@ -10,6 +10,12 @@ export enum ActionType {
   LOGOUT = "logout",
 }
 
+export enum SignUpActionType {
+  SIGNUP_REQUEST = "SIGNUP/REQUEST",
+  SIGNUP_SUCCESS = "SIGNUP/SUCCESS",
+  SIGNUP_ERROR = "SIGNUP/ERROR",
+}
+
 export enum FoodCreateActionTypes {
   FOOD_CREATE_REQUEST = "FOOD_CREATE_REQUEST",
   FOOD_CREATE_SUCCESS = "FOOD_CREATE_SUCCESS",

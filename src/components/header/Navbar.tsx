@@ -9,11 +9,13 @@ import brandLogo from "../../assets/images/logo.png";
 import { logout } from "../../services/redux/actionCreator/authAction";
 import { AppState } from "../../services/redux/stores";
 import CartItems from "../cartItem/CartItems";
-import DropDown from "./DropDown";
+import AdminMenu from "./adminMenu";
 import TopSearchBar from "./TopSearchBar";
+import UserMenu from "./UserMenu";
 export default function Navbar() {
   const dispatch = useDispatch();
   const [openUserMenu, setOpenUserMenu] = useState(false);
+  const [openAdminMenu, setOpenAdminMenu] = useState(false);
   const cart = useSelector((state: AppState) => state.cart);
   const { data } = useSelector((state: AppState) => state.auth);
   const [openSearchBar, setOpenSearchBar] = useState(false);
@@ -93,17 +95,19 @@ export default function Navbar() {
               </a>
             </li>
 
-            {data ? (
+            {data?.role === "user" && (
               <li onClick={() => setOpenUserMenu(!openUserMenu)}>
                 <a className="nav-link " href="#">
                   <FaUserAlt />
                 </a>
               </li>
-            ) : (
-              <li className="nav-item">
-                <Link className="nav-link" to="/login">
-                  <FiUser />
-                </Link>
+            )}
+
+            {data?.role === "admin" && (
+              <li onClick={() => setOpenAdminMenu(!openAdminMenu)}>
+                <a className="nav-link " href="#">
+                  <FaUserAlt />
+                </a>
               </li>
             )}
 
@@ -123,7 +127,7 @@ export default function Navbar() {
                 </div>
               </a>
             </li>
-            {data && (
+            {data ? (
               <li className="nav-item">
                 <Link
                   className="nav-link"
@@ -133,10 +137,17 @@ export default function Navbar() {
                   <MdLogout />
                 </Link>
               </li>
+            ) : (
+              <li className="nav-item">
+                <Link className="nav-link" to="/login">
+                  <FiUser />
+                </Link>
+              </li>
             )}
           </ul>
         </div>
-        {openUserMenu ? <DropDown /> : null}
+        {openUserMenu ? <UserMenu /> : null}
+        {openAdminMenu ? <AdminMenu /> : null}
         {openCartItem ? <CartItems /> : null}
         {openSearchBar ? <TopSearchBar /> : null}
       </nav>

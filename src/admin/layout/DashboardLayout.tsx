@@ -3,7 +3,7 @@ import "../scss/style.scss";
 
 export default function DashboardLayout() {
   return (
-    <div>
+    <>
       <div>
         <AppSidebar />
         <div className="wrapper d-flex flex-column min-vh-100 bg-light">
@@ -14,6 +14,6 @@ export default function DashboardLayout() {
           <AppFooter />
         </div>
       </div>
-    </div>
+    </>
   );
 }

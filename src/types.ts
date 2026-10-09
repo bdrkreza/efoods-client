@@ -47,10 +47,13 @@ export interface IArticle {
 export interface IAuthData {
   name: string;
   email: string;
-  id: string;
-  role: string;
-  status: string;
-  token: string;
+  phone?: string;
+  id?: string;
+  role?: string;
+  status?: string;
+  token?: string;
+  image?: string;
+  password?: string;
 }
 
 export interface IDashboardStats {
@@ -58,4 +61,11 @@ export interface IDashboardStats {
   totalOrder: number;
   totalProduct: number;
   totalStore: number;
+}
+
+export enum Role {
+  // eslint-disable-next-line no-unused-vars
+  Admin = "admin",
+  // eslint-disable-next-line no-unused-vars
+  User = "user",
 }

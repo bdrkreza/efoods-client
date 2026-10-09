@@ -9,7 +9,7 @@
 .bg {
   position: absolute;
   z-index: -1;
-  top: 0px;
+  top: 0;
   right: 0;
   bottom: 0;
   left: 0;
@@ -93,12 +93,17 @@
     ),
     linear-gradient(135deg, rgba(40, 44, 43, 0.178), rgba(30, 24, 208, 0.363));
 }
-
+.auth_container {
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 .form-signin {
   width: 100%;
-  max-width: 330px;
-  margin: auto;
-  margin-top: 200px;
+  max-width: 400px;
+  margin: 0 auto;
+  text-align: center;
 
   @include glassmorphism();
   border-radius: 3px;
@@ -161,6 +166,7 @@
   }
 
   .form-floating {
+    margin: 10px;
     &:focus-within {
       z-index: 2;
     }

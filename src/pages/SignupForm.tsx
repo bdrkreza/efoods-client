@@ -1,14 +1,16 @@
 import { ChangeEvent, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
-import { userType } from "../services/api/authService";
-import { login } from "../services/redux/actionCreator/authAction";
+import { signUp } from "../services/redux/actionCreator/authAction";
 import { AppState } from "../services/redux/stores";
+import { IAuthData } from "../types";
 
-export default function LoginForm() {
+export default function SignupForm() {
   const navigate = useNavigate();
-  const [formData, setFormData] = useState<userType>({
+  const [formData, setFormData] = useState<IAuthData>({
+    name: "",
     email: "",
+    phone: "",
     password: "",
   });
 
@@ -23,11 +25,13 @@ export default function LoginForm() {
   if (data) {
     navigate("/");
   }
+
   return (
     <div className="container auth_container">
       <div className="bg"></div>
       <main className="form-signin">
-        <h1 className="h3">Login</h1>
+        <h1 className="h3">SignUp</h1>
+
         {status === "error" && (
           <div className="alert alert-success" role="alert">
             {error}
@@ -43,6 +47,17 @@ export default function LoginForm() {
           <div className="form-floating">
             <input
               onChange={handleOnChange}
+              name="name"
+              type="name"
+              className="form-control"
+              placeholder="name@example.com"
+              required
+            />
+            <label htmlFor="floatingInput">Name</label>
+          </div>
+          <div className="form-floating">
+            <input
+              onChange={handleOnChange}
               name="email"
               type="email"
               className="form-control"
@@ -50,6 +65,17 @@ export default function LoginForm() {
               required
             />
             <label htmlFor="floatingInput">Email address</label>
+          </div>
+          <div className="form-floating">
+            <input
+              onChange={handleOnChange}
+              name="phone"
+              type="text"
+              className="form-control"
+              placeholder="+0880171000000"
+              required
+            />
+            <label htmlFor="floatingInput">Phone Number</label>
           </div>
           <div className="form-floating">
             <input
@@ -80,19 +106,15 @@ export default function LoginForm() {
           </div>
           <button
             disabled={status === "pending"}
-            onClick={() => dispatch(login(formData))}
+            onClick={() => dispatch(signUp(formData))}
             className="w-100 btn btn-lg"
             type="submit"
           >
-            {status === "pending" ? "pending" : "Sign in"}
+            {status === "pending" ? "loading..." : "SignUp"}
           </button>
         </form>
-        <Link
-          to="/signup"
-          className="w-100  text-info btn btn-lg"
-          type="submit"
-        >
-          New Customer?
+        <Link to="/login" className="w-100 btn btn-lg text-info" type="submit">
+          Already have an account?
         </Link>
         <p className="copyright">&copy; 2021</p>
       </main>

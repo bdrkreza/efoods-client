@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
 
-export default function DropDown() {
+export default function AdminMenu() {
   return (
-    <div>
+    <>
       <div className="user_menu">
         <div className="list-group user-menu-cart" id="list-tab" role="tablist">
           <a
@@ -23,7 +23,7 @@ export default function DropDown() {
             role="tab"
             aria-controls="profile"
           >
-            Profile
+            dashboard
           </Link>
           <a
             className="list-group-item list-group-item-action"
@@ -47,6 +47,6 @@ export default function DropDown() {
           </a>
         </div>
       </div>
-    </div>
+    </>
   );
 }

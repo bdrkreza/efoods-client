@@ -10,7 +10,9 @@ const DefaultLayout = ({ children }: Props) => {
   return (
     <div>
       {!location.pathname.includes("/dashboard") && <Header />}
+
       {children}
+
       {!location.pathname.includes("/dashboard") && <Footer />}
     </div>
   );

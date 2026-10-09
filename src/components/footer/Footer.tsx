@@ -24,8 +24,15 @@ export default function Footer() {
               </div>
 
               <p className="text-center">
-                <a href="#"> Privacy Policy</a> Copyright © 2019 - 2020.
-                <a href="https://www.markuptag.com/">markuptag.com</a>
+                <a href="#"> Privacy Policy</a> Copyright © 2020 - 2022.
+                <a
+                  target="_blank"
+                  href="https://rk-reza.web.app/"
+                  className="ms-3"
+                  rel="noreferrer"
+                >
+                  rk-reza.app.com
+                </a>
               </p>
             </div>
           </div>
